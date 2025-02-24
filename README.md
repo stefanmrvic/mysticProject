@@ -19,7 +19,7 @@ This challenge is to build a **responsive multi-level navigation menu** that wor
 -   Clicking the hamburger icon should toggle the menu **open/close**.
 -   Submenus should open **on tap** instead of hover.
 -   The menu should be **full-screen overlay or a slide-in sidebar**.
--   Clicking outside the menu should close it.
+-   Hovering outside the menu should close it.
 -   **Animations** should make transitions smooth.
 
 ### Bonus Features:
