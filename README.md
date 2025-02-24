@@ -33,8 +33,8 @@ This challenge is to build a **responsive multi-level navigation menu** that wor
 
 1. Clone the repository:
     ```sh
-    git clone <repo-url>
-    cd menu-challenge
+    git clone <repo-url> <folder-name>
+    cd <folder-name>
     ```
 2. Install dependencies:
     ```sh
