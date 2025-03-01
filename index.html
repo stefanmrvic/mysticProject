@@ -11,28 +11,28 @@
             href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
             rel="stylesheet" />
         <link rel="icon" href="/favicon.ico" />
+        <script src="https://kit.fontawesome.com/1e116fbff0.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <header id="main-header">
             <h1>Menu challenge</h1>
             <nav>
-                <ul>
+                <ul id="menu">
                     <li><a href="#">Home</a></li>
-                    <li>
-                        <a href="#">About</a>
-                        <ul>
-                            <li><a href="#">The team</a></li>
+                    <li class="submenu-category">
+                        <a href="#">About <i class="fa-solid fa-arrow-down"></i></a>
+                        <ul id="spec" class="submenu">
+                            <li><a href="#">The Team</a></li>
                             <li><a href="#">History</a></li>
                             <li><a href="#">Vision</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="#">Services</a>
-                        <ul>
+                    <li class="submenu-category">
+                        <a href="#">Services <i class="fa-solid fa-arrow-down"></i></a>
+                        <ul class="submenu">
                             <li><a href="#">Web Design</a></li>
-                            <li>
-                                <a href="#">Web Development</a>
-                                <ul>
+                            <li class="submenu-category"><a href="#">Web Development <i class="fa-solid fa-arrow-down"></i></a>
+                                <ul class="submenu">
                                     <li><a href="#">Front-End</a></li>
                                     <li><a href="#">Back-End</a></li>
                                 </ul>
@@ -40,9 +40,9 @@
                             <li><a href="#">Graphic Design</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="#">Contact</a>
-                        <ul>
+                    <li class="submenu-category">
+                        <a href="#">Contact <i class="fa-solid fa-arrow-down"></i></a>
+                        <ul class="submenu">
                             <li><a href="#">Support</a></li>
                             <li><a href="#">Sales</a></li>
                         </ul>
