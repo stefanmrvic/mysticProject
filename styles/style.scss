@@ -1,5 +1,7 @@
-@use "./parts/header";
+@use "./parts/variables" as *;
 @use "./parts/reset";
+@use "./parts/placeholders";
+@use "./parts/header";
 
 body {
     font-family: Roboto, sans-serif;
