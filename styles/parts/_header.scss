@@ -1,55 +1,99 @@
-@use 'variables' as *;
+// $primary-color: #171717;
+// $secondary-color: #ffffff;
+// $secondary-color-active: #ffffff;
+// $secondary-color-inactive: #ffffff8d;
 
 #main-header {
     nav {
-        background-color: $primary-color;
-        height: 45px;
+        background-color: #171717;
+
+        #menu > li {
+            display: flex;
+            align-items: center;
+            height: 45px;
+        }
+
+        #menu > li > a {
+            display: block;
+        }
 
         #menu {
             height: 100%;
             display: flex;
-            //justify-content: start;
             align-items: center;
             flex-wrap: wrap;
             gap: 3%;
-
-            li.submenu-category:hover > ul.submenu {
-                display: initial;
-            }
-
-            .submenu-category {
-                position: relative;
-            }
-
-            .submenu-1 {
-                @extend %submenu;
-                position: absolute;
-                top: 100%;
-                left: 0;
-            }
-
-            .submenu-2 {
-                @extend %submenu;
-                position: absolute;
-                top: 0;
-                left: 100%;
-            }
-
-            li:hover {
-                color: $secondary-color-active;
-            }
-
+            
             li {
+                color: #ffffff7a;
+            }
+            
+            li:hover a {
+                color: #ffffff;
+            }
+            
+            li a {
                 list-style: none;
             }
 
             a {
                 text-decoration: none;
-                color: #fff;
+                color: #ffffff7a;
+                
             }
 
             i {
                 padding-left: 3px;
+            }
+
+            .submenu-category:hover > ul.submenu {
+                display: initial;
+            }
+
+            .submenu-category {
+                position: relative;
+                text-align: center;
+            }
+
+            .submenu-category ul li {
+                border: 1px solid rgba(255, 255, 255, 0.096);
+            }
+            
+            .submenu li a,
+            ul.submenu.submenu-2 li a {
+                display: block;
+                padding: 13px 10px;
+                color: #ffffff7a;
+            }
+
+            .submenu li:hover a,
+            ul.submenu.submenu-2 li:hover a {
+                color: #ffffff;
+            }
+
+            .submenu-1 {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #171717;
+                //color: $secondary-color-inactive;
+                width: 110px;
+            }
+
+            .submenu-2 {
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 100%;
+                background-color: #171717;
+                //color: $secondary-color-inactive;
+                border: 1px solid #ffffff2b;
+                width: 110px;
+            }
+
+            .services-menu {
+                width: 135px;
             }
         }
     }
