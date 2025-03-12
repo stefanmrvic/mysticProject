@@ -5,42 +5,56 @@
 
 #main-header {
     nav {
+        display: flex;
         background-color: #171717;
+        height: 45px;
+        justify-content: end;
 
-        #menu > li {
-            display: flex;
-            align-items: center;
-            height: 45px;
-        }
-
-        #menu > li > a {
+        @media (min-width: 768px) {
             display: block;
+        }
+        
+        #hamburger {
+            color: white;
+            background: none;
+            border: none;
+            height: 100%;
+            margin-right: 10px;
+
+            @media (min-width: 768px) {
+                display: none;
+            }
         }
 
         #menu {
             height: 100%;
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 3%;
-            margin-right: 25px;
             
+            @media (min-width: 768px) {
+                display: flex;
+                gap: 3%;
+                flex-wrap: wrap;
+                margin-left: 10px;
+                align-items: center;
+            }
+
             li {
+                display: none;
                 color: #ffffff7a;
+
+                @media (min-width: 768px) {
+                    display: list-item;
+                }
             }
             
-            li:hover a {
+            &:hover a {
                 color: #ffffff;
             }
             
-            li a {
-                list-style: none;
-            }
-
             a {
+                display: block;
+                list-style: none;
                 text-decoration: none;
                 color: #ffffff7a;
-                
             }
 
             i {
@@ -78,7 +92,6 @@
                 top: 100%;
                 left: 0;
                 background-color: #171717;
-                //color: $secondary-color-inactive;
                 width: 110px;
             }
 
@@ -88,7 +101,6 @@
                 top: 0;
                 left: 100%;
                 background-color: #171717;
-                //color: $secondary-color-inactive;
                 border: 1px solid #ffffff2b;
                 width: 110px;
             }
