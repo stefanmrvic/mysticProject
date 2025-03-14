@@ -36,13 +36,15 @@
                 margin-left: 10px;
                 align-items: center;
             }
-
+            
             li {
                 display: none;
                 color: #ffffff7a;
-
+                height: 100%;
+                
                 @media (min-width: 768px) {
-                    display: list-item;
+                    display: flex;
+                    align-items: center;
                 }
             }
             
