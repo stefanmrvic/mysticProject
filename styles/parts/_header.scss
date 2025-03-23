@@ -4,7 +4,7 @@
 // $secondary-color-inactive: #ffffff8d;
 
 #main-header {
-    nav {
+    .nav {
         display: flex;
         background-color: #171717;
         height: 45px;
@@ -18,8 +18,9 @@
             color: white;
             background: none;
             border: none;
+            margin-top: 2px;
+            margin-right: 24px;
             height: 100%;
-            margin-right: 10px;
 
             @media (min-width: 768px) {
                 display: none;
@@ -112,4 +113,30 @@
             }
         }
     }
+
+    // Hamburger Menu Toggle Styles Start //
+    .nav.active {
+        height: 100vh;
+
+        #menu {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            gap: 12%;
+
+            #hamburger {
+                height: auto;
+                align-self: flex-end;
+                margin-top: 16px;
+                margin-right: 24px;
+            }
+
+            li {
+                display: flex;
+                height: auto;
+            }
+        }
+    }
+    // Hamburger Menu Toggle Styles End //
 }
