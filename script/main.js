@@ -1,22 +1,16 @@
 const hamburger = document.getElementById("hamburger");
 const nav = document.querySelector(".nav");
+const navMenu = document.getElementById("menu");
 
 hamburger.addEventListener('click', toggleHamburgerMenu);
+navMenu.addEventListener("click", toggleSubmenu);
 
 function toggleHamburgerMenu() {
     nav.classList.toggle("active");
 }
 
-const submenuParentItems = document.querySelectorAll(".submenu-category");
-
-submenuParentItems.forEach(submenuParentItem => {
-    submenuParentItem.addEventListener("click", toggleSubmenu);
-})
-
 function toggleSubmenu(e) {
-    // Prevents bubbling for "Web Development" submenu under "Services" submenu, 
-    // and thus preventing instant collapsing of "Web Development" submenu
-    e.stopPropagation();
-
-    e.currentTarget.classList.toggle("active");
+    // It uses bubbling to create event delegation from parent element to child elements,
+    // to avoid using forEach to attach eventListener to all child elements, thus saving memory
+    e.target.closest(".submenu-category").classList.toggle("active");
 }
