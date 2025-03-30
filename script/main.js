@@ -10,7 +10,9 @@ function toggleHamburgerMenu() {
 }
 
 function toggleSubmenu(e) {
+    const submenu = e.target.closest(".submenu-category");
+    if (!submenu) return;
     // It uses bubbling to create event delegation from parent element to child elements,
     // to avoid using forEach to attach eventListener to all child elements, thus saving memory
-    e.target.closest(".submenu-category").classList.toggle("active");
+    submenu.classList.toggle("active");
 }

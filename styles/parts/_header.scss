@@ -15,7 +15,7 @@
         }
         
         #hamburger {
-            color: white;
+            color: #ffffff;
             background: none;
             border: none;
             margin-top: 2px;
@@ -51,7 +51,9 @@
             }
             
             li:hover a {
-                color: #ffffff;
+                @media (min-width: 768px) {
+                    color: #ffffff;
+                }
             }
             
             a {
@@ -91,7 +93,9 @@
 
             .submenu li:hover a,
             ul.submenu.submenu-2 li:hover a {
-                color: #ffffff;
+                @media (min-width: 768px) {
+                    color: #ffffff;
+                }
             }
 
             .submenu {
@@ -166,6 +170,10 @@
              {
                 display: flex;
                 flex-direction: column;
+            }
+
+            .submenu-category.active > a {
+                color: #ffffff;
             }
         }
     }
