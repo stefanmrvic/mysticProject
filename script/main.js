@@ -32,10 +32,6 @@ function toggleSubmenu(e) {
     // Defining it as undefined to avoid errors in the console saying that element with the class "submenu-2" doesn't exist.
     const nestedSubmenu = e.target.closest('.submenu-category.sub-2') ? true : false;
 
-    // Checks if there are sibling next to the current even.target of the clicked item, if the sibling exists then
-    // that most likely (like 99.9%) means it's a second-layer submenu, so it further checks if there is sibling element
-    // with the class name "sub-2" and it gets assigned to a variable, which contains true or false. (terrible I know...)
-
     // If the currently clicked element is not the child of the nav's <li>, it exits the func call. Guard Clause, wooooo, #iq300 prodigy
     if (!submenu) return;
 
