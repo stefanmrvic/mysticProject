@@ -1,18 +1,57 @@
-const hamburger = document.getElementById("hamburger");
-const nav = document.querySelector(".nav");
-const navMenu = document.getElementById("menu");
+const hamburger = document.getElementById('hamburger');
+const nav = document.querySelector('.nav');
+const navMenu = document.getElementById('menu');
+// Using spread here so I can use array method .includes() to check if any of the active elements
+// are the currently clicked submenu.
+let activeElements = [...document.querySelectorAll('li.active')];
 
 hamburger.addEventListener('click', toggleHamburgerMenu);
-navMenu.addEventListener("click", toggleSubmenu);
+// It uses bubbling to create event delegation from parent element to child elements,
+// to avoid using forEach to attach eventListener to all child elements, thus saving memory.
+navMenu.addEventListener('click', toggleSubmenu);
 
 function toggleHamburgerMenu() {
-    nav.classList.toggle("active");
+    nav.classList.toggle('active');
+
+    // Removes white color from any active items when nav is being closed.
+    if (activeElements.length > 0) {
+        activeElements.forEach(el => el.classList.remove('active'));
+    }
 }
 
 function toggleSubmenu(e) {
-    const submenu = e.target.closest(".submenu-category");
+    // Selects the parent of the currently clicked element (which is usually <a> or <i>) so I need to use .closest()
+    // in order to select the <li> element on which I attach .active class which changes the color of the <li> 
+    // and it expands the submenu below to display additional items/elements.
+    const submenu = e.target.closest('.submenu-category');
+
+    // Updates the nodeList whenever the item in <nav> is being clicked, so that the new active items can be detected 
+    // within the toggleHamburgerMenu() function.
+    activeElements = [...document.querySelectorAll('li.active')];
+
+    // Defining it as undefined to avoid errors in the console saying that element with the class "submenu-2" doesn't exist.
+    const nestedSubmenu = e.target.closest('.submenu-category.sub-2') ? true : false;
+
+    // Checks if there are sibling next to the current even.target of the clicked item, if the sibling exists then
+    // that most likely (like 99.9%) means it's a second-layer submenu, so it further checks if there is sibling element
+    // with the class name "sub-2" and it gets assigned to a variable, which contains true or false. (terrible I know...)
+
+    // If the currently clicked element is not the child of the nav's <li>, it exits the func call. Guard Clause, wooooo, #iq300 prodigy
     if (!submenu) return;
-    // It uses bubbling to create event delegation from parent element to child elements,
-    // to avoid using forEach to attach eventListener to all child elements, thus saving memory
-    submenu.classList.toggle("active");
+
+    // It checks if the clicked <li> is not second-layer submenu and it checks if the element with class "active" exists.
+    // This is because we don't want to remove "active" class from the parent of second-layer submenu, because it would close it.
+    // If it finds the element that is not a second-layer submenu, with class"active" in it, it deletes it.
+    if (!nestedSubmenu && activeElements.length > 0) {
+        activeElements.forEach(el => el.classList.remove('active'));
+
+        // If the current submenu is also the activeElement, then the code above will remove the white color of <li>,
+        // and this code below will add white color to the clicked <li>, meaning that the state will remain the same.
+        if (!activeElements.includes(submenu)) {
+            submenu.classList.toggle('active');
+        }
+
+    } else {
+        submenu.classList.toggle('active');
+    }
 }
