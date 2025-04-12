@@ -1,5 +1,5 @@
 const hamburger = document.getElementById('hamburger');
-const nav = document.querySelector('.nav');
+const nav = document.getElementById('nav');
 const navMenu = document.getElementById('menu');
 // Using spread here so I can use array method .includes() to check if any of the active elements
 // are the currently clicked submenu.
@@ -9,6 +9,7 @@ hamburger.addEventListener('click', toggleHamburgerMenu);
 // It uses bubbling to create event delegation from parent element to child elements,
 // to avoid using forEach to attach eventListener to all child elements, thus saving memory.
 navMenu.addEventListener('click', toggleSubmenu);
+navMenu.addEventListener('focus', toggleSubmenu);
 
 function toggleHamburgerMenu() {
     nav.classList.toggle('active');

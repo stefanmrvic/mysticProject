@@ -4,7 +4,7 @@
 // $secondary-color-inactive: #ffffff8d;
 
 #main-header {
-    .nav {
+    #nav {
         display: flex;
         background-color: #171717;
         height: 45px;
@@ -50,7 +50,8 @@
                 }
             }
             
-            li:hover a {
+            li:hover a,
+            li a:focus {
                 @media (min-width: 768px) {
                     color: #ffffff;
                 }
@@ -67,7 +68,9 @@
                 padding-left: 3px;
             }
 
-            .submenu-category:hover > ul.submenu {
+            // Adding keyboard support
+            .submenu-category:hover > ul.submenu,
+            .submenu-category:focus-within > ul.submenu {
                 @media (min-width: 768px) {
                     display: initial;
                 }
@@ -91,8 +94,11 @@
                 color: #ffffff7a;
             }
 
+            // Adding keyboard support
             .submenu li:hover a,
-            ul.submenu.submenu-2 li:hover a {
+            ul.submenu.submenu-2 li:hover a,
+            .submenu li a:focus,
+            ul.submenu.submenu-2 li a:focus {
                 @media (min-width: 768px) {
                     color: #ffffff;
                 }
@@ -114,15 +120,15 @@
             .submenu-2 {
                 display: none;
                 position: absolute;
-                top: -1px;
-                left: 169px;
+                top: 0;
+                left: 168px;
                 background-color: #171717;
             }
         }
     }
 
     // Hamburger Menu Toggle Styles Start //
-    .nav.active {
+    #nav.active {
         height: 100vh;
 
         #menu {
