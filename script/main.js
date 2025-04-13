@@ -66,3 +66,21 @@ function closeSubmenu(e) {
         activeElements.forEach(el => el.classList.remove('active'));
     }  
 }
+
+// Keyboard navigation support //
+navMenu.addEventListener('focusin', checkFocus);
+
+// Still Testing - NO JUDGE ZONE //
+// function checkFocus(e) {
+//     if (e.target.nextSibling) {
+//         e.target.addEventListener('keydown', (e) => {
+//             //console.log(e.target);
+//             if (e.key === "ArrowDown") {
+//                 //console.log('radi');
+//                 const link = e.target.nextElementSibling.querySelector('a');
+//                 //console.log(link);
+//                 if (link) link.focus();
+//             }
+//         })
+//     }
+// }
