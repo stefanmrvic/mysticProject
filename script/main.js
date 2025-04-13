@@ -1,3 +1,4 @@
+const body = document.querySelector('body');
 const hamburger = document.querySelector('.hamburger');
 const nav = document.querySelector('.nav');
 const navMenu = document.querySelector('.menu');
@@ -9,6 +10,7 @@ hamburger.addEventListener('click', toggleHamburgerMenu);
 // It uses bubbling to create event delegation from parent element to child elements,
 // to avoid using forEach to attach eventListener to all child elements, thus saving memory.
 navMenu.addEventListener('click', toggleSubmenu);
+body.addEventListener('click', closeSubmenu);
 
 function toggleHamburgerMenu() {
     nav.classList.toggle('active');
@@ -35,14 +37,6 @@ function toggleSubmenu(e) {
     // If the currently clicked element is not the child of the nav's <li>, it exits the func call. Guard Clause, wooooo, #iq300 prodigy
     if (!submenu) return;
 
-    if (
-        e.target.nodeName !== 'LI' &&
-        e.target.nodeName !== 'A' &&
-        e.target.nodeName !== 'I'
-    ) {
-        return;
-    }
-
     // It checks if the clicked <li> is not second-layer submenu and it checks if the element with class "active" exists.
     // This is because we don't want to remove "active" class from the parent of second-layer submenu, because it would close it.
     // If it finds the element that is not a second-layer submenu, with class"active" in it, it deletes it.
@@ -58,4 +52,17 @@ function toggleSubmenu(e) {
     } else {
         submenu.classList.toggle('active');
     }
+}
+
+function closeSubmenu(e) {
+    console.log(e.target.nodeName);
+
+    if (
+        e.target.nodeName !== 'LI' &&
+        e.target.nodeName !== 'A' &&
+        e.target.nodeName !== 'I' &&
+        activeElements.length > 0
+    ) {
+        activeElements.forEach(el => el.classList.remove('active'));
+    }  
 }
