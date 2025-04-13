@@ -9,6 +9,7 @@
         background-color: #171717;
         height: 45px;
         justify-content: end;
+        flex-direction: column;
 
         @media (min-width: 768px) {
             display: block;
@@ -20,7 +21,8 @@
             border: none;
             margin-top: 2px;
             margin-right: 24px;
-            height: 100%;
+            flex-basis: 100%;
+            align-self: flex-end;
 
             @media (min-width: 768px) {
                 display: none;
@@ -29,6 +31,7 @@
 
         .menu {
             height: 100%;
+            display: none;
             
             @media (min-width: 768px) {
                 display: flex;
@@ -130,20 +133,19 @@
     // Hamburger Menu Toggle Styles Start //
     .nav.active {
         height: 100vh;
+        
+        .hamburger {
+            //margin-top: 16px;
+            //m/argin-right: 24px;
+            flex-basis: 45px;
+        }
 
         .menu {
             display: flex;
             flex-direction: column;
             width: 100%;
             align-items: center;
-            //gap: 12%;
 
-            .hamburger {
-                height: auto;
-                align-self: flex-end;
-                margin-top: 16px;
-                margin-right: 24px;
-            }
 
             li {
                 width: 100%;
