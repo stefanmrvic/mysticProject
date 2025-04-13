@@ -3,8 +3,8 @@
 // $secondary-color-active: #ffffff;
 // $secondary-color-inactive: #ffffff8d;
 
-#main-header {
-    #nav {
+.main-header {
+    .nav {
         display: flex;
         background-color: #171717;
         height: 45px;
@@ -14,7 +14,7 @@
             display: block;
         }
         
-        #hamburger {
+        .hamburger {
             color: #ffffff;
             background: none;
             border: none;
@@ -27,7 +27,7 @@
             }
         }
 
-        #menu {
+        .menu {
             height: 100%;
             
             @media (min-width: 768px) {
@@ -128,17 +128,17 @@
     }
 
     // Hamburger Menu Toggle Styles Start //
-    #nav.active {
+    .nav.active {
         height: 100vh;
 
-        #menu {
+        .menu {
             display: flex;
             flex-direction: column;
             width: 100%;
             align-items: center;
             //gap: 12%;
 
-            #hamburger {
+            .hamburger {
                 height: auto;
                 align-self: flex-end;
                 margin-top: 16px;
