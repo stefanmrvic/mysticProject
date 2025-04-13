@@ -14,6 +14,12 @@ body.addEventListener('click', closeSubmenu);
 
 function toggleHamburgerMenu() {
     nav.classList.toggle('active');
+    const hamburgerAriaExpanded = hamburger.getAttribute('aria-expanded');
+    if (hamburgerAriaExpanded === "true") {
+        hamburger.setAttribute('aria-expanded', 'false');
+    } else {
+        hamburger.setAttribute('aria-expanded', 'true');
+    }
 
     // Removes white color from any active items when nav is being closed.
     if (activeElements.length > 0) {
