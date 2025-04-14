@@ -36,8 +36,7 @@ function toggleSubmenu(e) {
     toggleAriaHidden(submenu);
     toggleAriaExpanded(submenuLink);
 
-
-    // Defining it as undefined to avoid errors in the console saying that element with the class "submenu-2" doesn't exist.
+    // Checks if the clicked element is part of a second-level submenu
     const nestedSubmenu = e.target.closest('.submenu-category.sub-2') ? true : false;
 
     // Using spread here to convert nodeList into an array, so I can use array method .includes() to check if any of the active elements

@@ -71,7 +71,7 @@
                 padding-left: 3px;
             }
 
-            // Adding keyboard support
+            // Adding keyboard support (TAB)
             .submenu-category:hover > ul.submenu,
             .submenu-category:focus-within > ul.submenu {
                 @media (min-width: 768px) {
@@ -97,7 +97,7 @@
                 color: #ffffff7a;
             }
 
-            // Adding keyboard support
+            // Adding keyboard support (TAB)
             .submenu li:hover a,
             ul.submenu.submenu-2 li:hover a,
             .submenu li a:focus,
@@ -135,8 +135,6 @@
         height: 100vh;
         
         .hamburger {
-            //margin-top: 16px;
-            //m/argin-right: 24px;
             flex-basis: 45px;
         }
 
@@ -148,18 +146,23 @@
             gap: 5%;
             margin-top: 9%;
 
-
             li {
                 display: flex;
                 height: auto;
                 text-align: center;
 
                 .submenu {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
                     position: relative;
-                    display: none;
+                    visibility: hidden;
+                    max-height: 0;
+                    opacity: 0;
                     top: 0;
                     left: 0;
                     width: 100%;
+                    transition: opacity 2s ease-in-out, max-height .9s ease-in;
 
                     li {
                         border: none;
@@ -173,9 +176,10 @@
 
             .submenu-category.active > .submenu
              {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+                visibility: visible;
+                max-height: 300px;
+                opacity: 1;
+                transition: opacity 2s ease-in-out, max-height .3s ease-in;
             }
 
             .submenu-category.active > a {
