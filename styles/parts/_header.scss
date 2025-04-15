@@ -162,7 +162,7 @@
                     top: 0;
                     left: 0;
                     width: 100%;
-                    transition: opacity 2s ease-in-out, max-height .9s ease-in;
+                    transition: opacity .9s ease-in, max-height .9s ease-in;
 
                     li {
                         border: none;
@@ -176,10 +176,11 @@
 
             .submenu-category.active > .submenu
              {
+                // These animations are terrible ;_; send help
                 visibility: visible;
                 max-height: 300px;
                 opacity: 1;
-                transition: opacity 2s ease-in-out, max-height .3s ease-in;
+                transition: opacity .9s ease-in, max-height .9s ease-in;
             }
 
             .submenu-category.active > a {
