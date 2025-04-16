@@ -10,19 +10,19 @@
         height: 45px;
         justify-content: end;
         flex-direction: column;
+        transition: height .5s ease .25s;
 
         @media (min-width: 768px) {
             display: block;
         }
         
         .hamburger {
+            position: absolute;
+            top: 36px;
+            right: 26px;
             color: #ffffff;
             background: none;
             border: none;
-            margin-top: 2px;
-            margin-right: 24px;
-            flex-basis: 100%;
-            align-self: flex-end;
 
             @media (min-width: 768px) {
                 display: none;
@@ -30,25 +30,32 @@
         }
 
         .menu {
+            visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5%;
             height: 100%;
-            display: none;
+            margin-top: 73px;
+            opacity: 0;
+            transition: visibility 3s linear, height 0.5s ease-out 2s, opacity .25s ease-out;
             
             @media (min-width: 768px) {
-                display: flex;
-                gap: 3%;
                 flex-wrap: wrap;
+                gap: 3%;
                 margin-left: 10px;
-                align-items: center;
             }
             
             li {
-                display: none;
+                display: flex;
+                justify-content: center;
+                max-height: 0;
+                width: 170px;
                 color: #ffffff7a;
-                height: 100%;
+                border: 1px solid rgb(242, 242, 242);
+                transition: max-height .85s ease;
                 
                 @media (min-width: 768px) {
-                    display: flex;
-                    align-items: center;
                     justify-content: flex-start;
                 }
             }
@@ -60,7 +67,8 @@
                 }
             }
             
-            a {
+            a {  
+                padding: 6px 0;
                 display: block;
                 list-style: none;
                 text-decoration: none;
@@ -93,7 +101,7 @@
             .submenu li a,
             ul.submenu.submenu-2 li a {
                 display: block;
-                padding: 13px 10px;
+                padding: 13px 0;
                 color: #ffffff7a;
             }
 
@@ -133,24 +141,22 @@
     // Hamburger Menu Toggle Styles Start //
     .nav.active {
         height: 100vh;
-        
-        .hamburger {
-            flex-basis: 45px;
-        }
+        transition: height .5s ease;
 
         .menu {
-            display: flex;
-            flex-direction: column;
+            visibility: visible;
+            //height: 100%;
             width: 100%;
-            align-items: center;
-            gap: 5%;
-            margin-top: 9%;
-
+            opacity: 1;
+            transition: opacity .85s ease .35s;
+            
             li {
-                display: flex;
-                height: auto;
-                text-align: center;
-
+                //height: auto;
+                max-height: 450px;
+                //width: 170px;
+                border: 1px solid rgb(242, 242, 242);
+                transition: max-height .5s ease;
+                
                 .submenu {
                     display: flex;
                     flex-direction: column;
@@ -162,12 +168,17 @@
                     top: 0;
                     left: 0;
                     width: 100%;
-                    transition: opacity .9s ease-in, max-height .9s ease-in;
-
+                    transition: visibility 2s linear, opacity .25s ease, max-height .35s ease-out;
+                    
                     li {
                         border: none;
                     }
                 }
+            }
+
+            a:active {
+                color: #ffffff;
+                transition: color .25s ease;
             }
 
             .submenu-category {
@@ -180,7 +191,7 @@
                 visibility: visible;
                 max-height: 300px;
                 opacity: 1;
-                transition: opacity .9s ease-in, max-height .9s ease-in;
+                transition: visibility 2s linear, opacity .25s ease, max-height .3s ease;
             }
 
             .submenu-category.active > a {
