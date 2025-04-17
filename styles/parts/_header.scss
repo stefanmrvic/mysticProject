@@ -14,6 +14,7 @@
 
         @media (min-width: 768px) {
             display: block;
+            transition: initial;
         }
         
         .hamburger {
@@ -35,15 +36,18 @@
             flex-direction: column;
             align-items: center;
             gap: 5%;
-            height: 100%;
-            margin-top: 73px;
+            height: 0;
             opacity: 0;
-            transition: visibility 3s linear, height 0.5s ease-out 2s, opacity .25s ease-out;
+            transition: visibility 2.5s linear, margin 0s linear 2s, height 0s ease-out 2s, opacity .25s ease-out;
             
             @media (min-width: 768px) {
-                flex-wrap: wrap;
+                flex-direction: row;
+                visibility: visible;
+                opacity: 1;
+                height: 100%;
                 gap: 3%;
                 margin-left: 10px;
+                transition: initial;
             }
             
             li {
@@ -56,7 +60,13 @@
                 transition: max-height .85s ease;
                 
                 @media (min-width: 768px) {
+                    height: 100%;
+                    width: auto;
+                    max-height: none;
+                    align-items: center;
                     justify-content: flex-start;
+                    border: initial;
+                    transition: initial;
                 }
             }
             
@@ -103,6 +113,10 @@
                 display: block;
                 padding: 13px 0;
                 color: #ffffff7a;
+
+                @media (min-width: 768px) {
+                    padding: 13px 10px 13px 11px;
+                }
             }
 
             // Adding keyboard support (TAB)
@@ -145,15 +159,14 @@
 
         .menu {
             visibility: visible;
-            //height: 100%;
+            height: 100%;
+            margin-top: 73px;
             width: 100%;
             opacity: 1;
             transition: opacity .85s ease .35s;
             
             li {
-                //height: auto;
                 max-height: 450px;
-                //width: 170px;
                 border: 1px solid rgb(242, 242, 242);
                 transition: max-height .5s ease;
                 
